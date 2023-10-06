@@ -1,8 +1,8 @@
 
 import { useState } from 'react';
-import gitLogo from '../assets/github.png'
-import Input from '../components/Input';
+import gitLogo from '../assets/github.png';
 import Button from '../components/Button';
+import Input from '../components/Input';
 import ItemRepo from '../components/ItemRepo';
 import { api } from '../services/api';
 
@@ -34,9 +34,9 @@ function App() {
   }
 
   const handleRemoveRepo = (id) => {
-    console.log('Removendo registro', id);
-
-    // utilizar filter.
+    setRepos((current) =>
+      current.filter((repo) => repo.id !== id)
+    );
   }
 
 
@@ -45,7 +45,7 @@ function App() {
       <img src={gitLogo} width={72} height={72} alt="github logo"/>
       <Input value={currentRepo} onChange={(e) => setCurrentRepo(e.target.value)} />
       <Button onClick={handleSearchRepo}/>
-      {repos.map(repo => <ItemRepo handleRemoveRepo={handleRemoveRepo} repo={repo}/>)}
+      {repos.map(repo => <ItemRepo key={repo.id} handleRemoveRepo={handleRemoveRepo} repo={repo}/>)}
     </Container>
   );
 }

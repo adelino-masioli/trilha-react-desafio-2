@@ -4,12 +4,10 @@ export const InputContainer = styled.div`
 
     border: 1px solid #FAFAFA;
     border-radius: 20px;
-
     height: 62px;
     width: 80%;
-
     margin: 20px;
-    
+
 
     input {
         background: transparent;
@@ -19,6 +17,11 @@ export const InputContainer = styled.div`
         padding: 0 20px;
         color: #FFFFFF;
         font-size: 20px
+        outline: 0;
+
+        &:hover {
+            outline: 0;
+        }
     }
 
-`
+`;
